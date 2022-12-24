@@ -101,11 +101,17 @@ body {
 img,
 picture {
     max-width: 100%;
+}
+img {
+        transition: transform 1s ease-in-out;
+      }
+      img:hover {
+        transform: rotate(360deg);
+      }
     /* display: block;  */
     /* Since we use the hidden html attribute for picture, the above line needs to be commented out.
        The reason is hidden gets very easily overwritten by CSS if we have something like display inline/inline-block, 
        or anything display-related in the CSS, hidden won't work  */
-}
 
 /* Reset form elements */
 input,
@@ -302,29 +308,25 @@ select {
 .numbered-title>span {
     margin-right: .5rem;
     font-weight: 700;
-    color: hsl(var(--clr-white) / .25)
+    color: hsl(var(--clr-light) / .25)
 }
 
 /* ---------------------------- */
 /* Components ----------------- */
 /* ---------------------------- */
-
 .large-button {
     font-size: 1.5rem;
     position: relative;
-    /* 0 top & bottom, 2em left & right */
     display: inline-grid;
     z-index: 1;
     place-items: center;
     padding: 0 2em;
     border-radius: 50%;
-    /* Turns the button into a perfect square */
     aspect-ratio: 1;
     text-decoration: none;
 }
 
 .large-button::after {
-    /* When using pseudo element, we always need the content like so */
     content: '';
     position: absolute;
     z-index: -1;
@@ -341,6 +343,8 @@ select {
     opacity: 1;
     transform: scale(1.5);
 }
+
+
 
 /* primary-header */
 .logo {
